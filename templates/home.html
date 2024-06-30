@@ -1,0 +1,9 @@
+<h1>Groove Street</h1>
+<ul>
+    {% for album in album_list %}
+    <li>
+        <img src="{{ album.album_img.url }}" alt="{{ album.title }}" style="max-width: 200px; max-height: 200px;">
+        <p>{{ album.title }}</p>
+    </li>
+    {% endfor %}
+</ul>

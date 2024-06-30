@@ -19,9 +19,7 @@ class Album(models.Model):
     release_date = models.DateField()
     genres = models.ManyToManyField(Genre)
     length = models.DurationField()
-    formats = models.ManyToManyField(Format)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    album_img = models.ImageField()
+    album_img = models.ImageField(upload_to="images/")
     
     def __str__(self):
         return self.title
@@ -29,6 +27,18 @@ class Album(models.Model):
     def get_absolute_url(self):
         return reverse("album_detail", kwargs={"pk": self.pk})
     
+class AlbumFormat(models.Model):
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    format = models.ForeignKey(Format, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['album', 'format'], name='unique_album_format')
+        ]
+
+    def __str__(self):
+        return f"{self.album.title} - {self.format.name} - ${self.price}"
     
 class Song(models.Model):
     title = models.CharField(max_length=100)
