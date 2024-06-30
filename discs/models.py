@@ -12,10 +12,16 @@ class Format(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Artist(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    
+    def __str__(self):
+        return self.name
 
 class Album(models.Model):
-    title = models.CharField(max_length=50)
-    artist = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, unique=True)
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     release_date = models.DateField()
     genres = models.ManyToManyField(Genre)
     length = models.DurationField()
@@ -44,6 +50,11 @@ class Song(models.Model):
     title = models.CharField(max_length=100)
     duration = models.DurationField()
     album = models.ForeignKey(Album, related_name='songs', on_delete=models.CASCADE)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['title', 'album'], name='unique_song_in_album')
+        ]
 
     def __str__(self):
         return self.title    
