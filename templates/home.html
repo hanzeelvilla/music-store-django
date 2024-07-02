@@ -1,13 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<ul>
-    {% for album in album_list %}
-    <li>
-        <img src="{{ album.album_img.url }}" alt="{{ album.title }}" style="max-width: 200px; max-height: 200px;">
-        <p>{{ album.title }} by {{ album.artist }}</p>
-        <a href="{{ album.get_absolute_url }}">More</a>
-    </li>
-    {% endfor %}
-</ul>
+<html>
+    <head>
+        <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container text-center main">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                {% for album in album_list %}
+                    <div class="col">
+                        <img src="{{ album.album_img.url }}" alt="{{ album.title }}" style="max-width: 200px; max-height: 200px;">
+                        <h5>{{ album.title }}</h5>
+                        <p>by</p>
+                        <h6>{{ album.artist }}</h6>
+                        <a href="{{ album.get_absolute_url }}">More</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
 {% endblock content %}

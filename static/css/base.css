@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    background-color: #750E21;
+    padding: 25px 50px;
+    height: 100px;
+}
+
+header a {
+    color: #0C0C0C;
+}
+
+footer {
+    background-color: #950101;
+    height: 100px;
+    padding: 30px;
+    text-align: center;
+}
+
+footer p {
+    color: #DDDDDD;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rock-salt-regular {
+    font-family: "Rock Salt", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.icon {
+    width: 50px;
+    padding-right: 10px;
+}

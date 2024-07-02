@@ -1,0 +1,22 @@
+body {
+    background-color: #191919;
+}
+
+h5, h6 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+p, a, h5, h6 {
+    color: #DDDDDD;
+}
+
+.main {
+    padding: 100px;
+}
