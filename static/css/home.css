@@ -2,21 +2,40 @@ body {
     background-color: #191919;
 }
 
-h5, h6 {
+h1 {
+    margin-bottom: 50px;
+}
+
+h1, h5, h6 {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
 }
 
+p, a {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p, a, h1, h5, h6 {
+    color: #DDDDDD;
+}
+
+h5 {
+    margin-top: 20px;
+}
+
 a {
     text-decoration: none;
 }
 
-p, a, h5, h6 {
-    color: #DDDDDD;
-}
-
 .main {
     padding: 100px;
+}
+
+.album {
+    margin-bottom: 30px;
 }

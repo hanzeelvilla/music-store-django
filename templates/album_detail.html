@@ -1,53 +1,73 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{% static 'css/album_detail.css' %}" rel="stylesheet">
+{% endblock extra_css %}
 
 {% block content %}
 <div>
-    <img src="{{ album.album_img.url }}" alt="{{ album.title }}" style="max-width: 200px; max-height: 200px;">
-    <h2>{{ album.title }}</h2>
-    <h3>by {{ album.artist }}</h3>
-    <h3>Released: {{ album.release_date }}</h3>
-    <h3>Genres:</h3>
-    <ul>
-        {% for genre in album.genres.all %}
-            <li>{{genre.name}}</li>
-        {% endfor %}
-    </ul>   
-    <h3>Length: {{ album.length }}</h3>
+    <div class="main">
+        <div class="container-separation">
+            <h2>{{ album.title }}</h2>
+            <h3>by {{ album.artist }}</h3>
+            <img class="album-img" src="{{ album.album_img.url }}" alt="{{ album.title }}" style="max-width: 200px; max-height: 200px;">
+        </div>
+        
+        <div class="container-separation">
+            <h5>Released: {{ album.release_date }}</h5>
+            <h5>Length: {{ album.length }}</h5>
+        </div>
 
-    <h3>Songs</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Duration</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for song in album.songs.all %}
-                <tr>
-                    <td>{{ song.title }}</td>
-                    <td>{{ song.duration }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="container-separation">
+            <h3>Genres</h3>
+            <ul>
+                {% for genre in album.genres.all %}
+                    <li>{{genre.name}}</li>
+                {% endfor %}
+            </ul>   
+        </div>
 
-    <h3>Formats and Prices</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Format</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for album_format in album.albumformat_set.all %}
-                <tr>
-                    <td>{{ album_format.format.name }}</td>
-                    <td>${{ album_format.price }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="container-separation">
+            <h3>Songs</h3>
+            
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for song in album.songs.all %}
+                        <tr>
+                            <td>{{ song.title }}</td>
+                            <td>{{ song.duration }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container-separation">
+            <h3>Formats and Prices</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Format</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for album_format in album.albumformat_set.all %}
+                        <tr>
+                            <td>{{ album_format.format.name }}</td>
+                            <td>${{ album_format.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock content %}

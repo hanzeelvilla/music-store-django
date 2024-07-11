@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #191919;
+}
+
+h2, h3, h5 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+ul{
+    list-style-position: inside;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+}
+
+table{
+    margin: 0 auto;
+    max-width: 40%;
+    border-collapse: collapse;
+}
+
+ul, table {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+ul, table, h2, h3, h5 {
+    color: #DDDDDD;
+}
+
+.main {
+    margin: 100px 0;
+    text-align: center;
+}
+
+.container-separation{
+    margin-bottom: 50px;
+}

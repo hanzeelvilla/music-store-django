@@ -33,6 +33,9 @@ class Album(models.Model):
     def get_absolute_url(self):
         return reverse("album_detail", kwargs={"pk": self.pk})
     
+    class Meta:
+        ordering = ['title']
+    
 class AlbumFormat(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     format = models.ForeignKey(Format, on_delete=models.CASCADE)
@@ -47,7 +50,7 @@ class AlbumFormat(models.Model):
         return f"{self.album.title} - {self.format.name} - ${self.price}"
     
 class Song(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     duration = models.DurationField()
     album = models.ForeignKey(Album, related_name='songs', on_delete=models.CASCADE)
     
