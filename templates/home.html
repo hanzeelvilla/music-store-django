@@ -1,32 +1,10 @@
 {% extends "base.html" %}
-{% load static %}
-{% load crispy_forms_tags %}
-
-{% block extra_css %}
-<link href="{% static 'css/home.css' %}" rel="stylesheet">
-{% endblock extra_css %}
 
 {% block content %}
-    <div class="container text-center main">
-        <h1>Album list</h1>
-        <form action="{% url 'home' %}" method="get">
-            {{ form|crispy }}
-            <button class="btn btn-dark btn-lg" type="submit">Search</button>
-        </form>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-            {% if album_list %}
-                {% for album in album_list %}
-                    <div class="col album">
-                        <a href="{{ album.get_absolute_url }}"><img src="{{ album.album_img.url }}" alt="{{ album.title }}" style="max-width: 200px; max-height: 200px;"></a>
-                        <h5>{{ album.title }}</h5>
-                        <p>by</p>
-                        <h6>{{ album.artist }}</h6>
-                        <a href="{{ album.get_absolute_url }}">More</a>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <p>No albums found.</p>
-            {% endif %}
-        </div>
+    <div>
+        <h1>HomePage</h1>
+        <p>Some cool Introduction to my web app</p>
+        <p>Oh look albums</p>
+        <a href="{% url "album_list" %}">Album list</a></p>
     </div>
 {% endblock content %}

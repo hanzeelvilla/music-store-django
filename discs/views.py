@@ -5,7 +5,7 @@ from .models import Album
 
 class HomePageView(ListView):
     model = Album
-    template_name = "home.html"
+    template_name = "album_list.html"
     context_object_name = 'album_list'
     
     def get_queryset(self):
