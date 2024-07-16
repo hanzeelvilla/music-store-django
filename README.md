@@ -10,3 +10,14 @@ favorites albums and songs (although I kept the price and formats of the albums)
 Hope you enjoy it, open to sugestions, comments and criticisms, but don't be too 
 bad :( 
 Having saying that. Welcome to Walle Tunes
+
+## Features
+
+### Album list
+![albumList](https://github.com/user-attachments/assets/3702e824-f246-422e-ba35-3fe34ae6811c)
+
+### Search bar
+![search](https://github.com/user-attachments/assets/ae6b7d43-0f9a-4325-84cd-ad220610193d)
+
+### Album detail
+![detailAlbum](https://github.com/user-attachments/assets/3b3383e9-da38-41f3-9b5b-acde4c6248b1)
