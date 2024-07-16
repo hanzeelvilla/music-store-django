@@ -9,7 +9,7 @@
 {% block content %}
     <div class="container text-center main">
         <h1>Album list</h1>
-        <form action="{% url 'home' %}" method="get">
+        <form action="{% url 'album_list' %}" method="get">
             {{ form|crispy }}
             <button class="btn btn-dark btn-lg" type="submit">Search</button>
         </form>
